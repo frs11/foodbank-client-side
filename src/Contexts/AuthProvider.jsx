@@ -14,20 +14,14 @@ export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [events, setEvents] = useState([]);
-  const [newEvents, setNewEvents] = useState([]);
+  const [brands, setBrands] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/events.json")
+    fetch("/brands.json")
       .then((res) => res.json())
-      .then((data) => setEvents(data));
-  }, []);
-  useEffect(() => {
-    fetch("/upcomingEvents.json")
-      .then((res) => res.json())
-      .then((data) => setNewEvents(data));
+      .then((data) => setBrands(data));
   }, []);
 
   useEffect(() => {
@@ -61,8 +55,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const contextData = {
-    events,
-    newEvents,
+    brands,
     user,
     loading,
     createNewUser,

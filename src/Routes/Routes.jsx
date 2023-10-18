@@ -18,6 +18,7 @@ const customRoutes = createBrowserRouter([
       {
         path: "/",
         element: <Homepage></Homepage>,
+        loader: () => fetch("/brands.json"),
       },
       {
         path: "/registration",

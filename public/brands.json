@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "brand_name": "Coca-Cola",
+      "brand_image": "https://i.ibb.co/f1TZHQd/Cocacola.png"
+    },
+    {
+      "id": 2,
+      "brand_name": "McDonald's",
+      "brand_image": "https://i.ibb.co/LrCxJK3/Mcdonalds.png"
+    },
+    {
+      "id": 3,
+      "brand_name": "Starbucks",
+      "brand_image": "https://i.ibb.co/g3WV89T/Star-Bucks.png"
+    },
+    {
+      "id": 4,
+      "brand_name": "PepsiCo",
+      "brand_image": "https://i.ibb.co/M2Hf09W/Pepsi.png"
+    },
+    {
+      "id": 5,
+      "brand_name": "KFC",
+      "brand_image": "https://i.ibb.co/xssrcSS/KFC.png"
+    },
+    {
+      "id": 6,
+      "brand_name": "Pizza Hut",
+      "brand_image": "https://i.ibb.co/1ZTbgmM/PizzaHut.png"
+    }
+  ]
+  
