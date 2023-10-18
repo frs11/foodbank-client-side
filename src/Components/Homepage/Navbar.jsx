@@ -4,9 +4,8 @@ import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { userSignOut } = useContext(AuthContext);
+  const { user, userSignOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  const user = true;
 
   const handleLogin = () => {
     navigate("/login");
@@ -116,13 +115,7 @@ const Navbar = () => {
             Home
           </NavLink>
         </span>
-        <span
-          className={
-            user
-              ? "flex mx-2 py-1 font-semibold hover:text-green-700"
-              : "hidden"
-          }
-        >
+        <span className="flex mx-2 py-1 font-semibold hover:text-green-700">
           <NavLink
             to="/addProduct"
             className={({ isActive, isPending }) =>
@@ -136,13 +129,7 @@ const Navbar = () => {
             Add Product
           </NavLink>
         </span>
-        <span
-          className={
-            user
-              ? "flex mx-2 py-1 font-semibold hover:text-green-700"
-              : "hidden"
-          }
-        >
+        <span className="flex mx-2 py-1 font-semibold hover:text-green-700">
           <NavLink
             to="/myCart"
             className={({ isActive, isPending }) =>
@@ -160,7 +147,7 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end">
-        {!user ? (
+        {user ? (
           <div className="flex items-center space-x-3">
             <div className="">
               <img

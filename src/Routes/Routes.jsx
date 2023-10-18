@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
+import Registration from "../Pages/Registration";
+import Login from "../Pages/Login";
+import ErrorPage from "../Pages/ErrorPage";
 import Homepage from "../Pages/Homepage";
 import MyCart from "../Pages/MyCart";
 import AddProduct from "../Pages/AddProduct";
-import ErrorPage from "../Pages/ErrorPage";
 
 const customRoutes = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const customRoutes = createBrowserRouter([
       {
         path: "/",
         element: <Homepage></Homepage>,
+      },
+      {
+        path: "/registration",
+        element: <Registration></Registration>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
       {
         path: "/addProduct",
