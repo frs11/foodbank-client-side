@@ -6,6 +6,8 @@ import ErrorPage from "../Pages/ErrorPage";
 import Homepage from "../Pages/Homepage";
 import MyCart from "../Pages/MyCart";
 import AddProduct from "../Pages/AddProduct";
+import PrivateRoutes from "./PrivateRoutes";
+import PreventionRoute from "./PreventionRoute";
 
 const customRoutes = createBrowserRouter([
   {
@@ -19,19 +21,35 @@ const customRoutes = createBrowserRouter([
       },
       {
         path: "/registration",
-        element: <Registration></Registration>,
+        element: (
+          <PreventionRoute>
+            <Registration></Registration>
+          </PreventionRoute>
+        ),
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: (
+          <PreventionRoute>
+            <Login></Login>
+          </PreventionRoute>
+        ),
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoutes>
+            <AddProduct></AddProduct>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoutes>
+            <MyCart></MyCart>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

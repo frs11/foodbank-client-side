@@ -56,7 +56,13 @@ const Navbar = () => {
                 Home
               </NavLink>
             </span>
-            <span className="block my-1 w-full px-2 bg-green-100 rounded-md py-1">
+            <span
+              className={
+                user
+                  ? "block my-1 w-full px-2 rounded-md bg-green-100 py-1"
+                  : "hidden"
+              }
+            >
               <NavLink
                 to="/addProduct"
                 className={({ isActive, isPending }) =>
@@ -70,7 +76,13 @@ const Navbar = () => {
                 Add Product
               </NavLink>
             </span>
-            <span className="block my-1 w-full px-2 rounded-md bg-green-100 py-1">
+            <span
+              className={
+                user
+                  ? "block my-1 w-full px-2 rounded-md bg-green-100 py-1"
+                  : "hidden"
+              }
+            >
               <NavLink
                 to="/myCart"
                 className={({ isActive, isPending }) =>
@@ -115,7 +127,13 @@ const Navbar = () => {
             Home
           </NavLink>
         </span>
-        <span className="flex mx-2 py-1 font-semibold hover:text-green-700">
+        <span
+          className={
+            user
+              ? "flex mx-2 py-1 font-semibold hover:text-green-700"
+              : "hidden"
+          }
+        >
           <NavLink
             to="/addProduct"
             className={({ isActive, isPending }) =>
@@ -129,7 +147,13 @@ const Navbar = () => {
             Add Product
           </NavLink>
         </span>
-        <span className="flex mx-2 py-1 font-semibold hover:text-green-700">
+        <span
+          className={
+            user
+              ? "flex mx-2 py-1 font-semibold hover:text-green-700"
+              : "hidden"
+          }
+        >
           <NavLink
             to="/myCart"
             className={({ isActive, isPending }) =>
@@ -151,7 +175,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-3">
             <div className="">
               <img
-                className="w-10 h-10 rounded-full ml-2"
+                className="w-7 lg:w-10 h-7 lg:h-10 rounded-full ml-4 lg:ml-2"
                 src={user.photoURL}
                 alt=""
               />
@@ -161,7 +185,7 @@ const Navbar = () => {
             </div>
             <button
               onClick={handleLogout}
-              className="px-5 py-2 bg-green-500 hover:bg-green-400 hover:text-black text-white rounded-md"
+              className="px-2 py-1 text-sm lg:text-base lg:px-5 lg:py-2 border hover:border-red-700 border-red-300 hover:bg-red-400 hover:text-black font-medium rounded-md"
             >
               Sign Out
             </button>
@@ -169,13 +193,13 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center">
             <img
-              className="w-10 h-10 rounded-full mr-3"
+              className="w-7 lg:w-10 h-7 lg:h-10 rounded-full mr-3"
               src="https://i.ibb.co/By0YFNn/default-profile-picture-grey-male-icon.png"
               alt=""
             />
             <button
               onClick={handleLogin}
-              className="px-5 py-2 bg-green-500 hover:bg-green-400 hover:text-black text-white rounded-md"
+              className="px-2 py-1 text-sm lg:text-base lg:px-5 lg:py-2 bg-green-600 hover:bg-green-400 hover:text-black text-white rounded-md"
             >
               Sign In
             </button>

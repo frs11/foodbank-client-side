@@ -9,13 +9,22 @@ const Footer = () => {
             <header className="footer-title text-base lg:text-xl">
               Services
             </header>
-            <Link to="/" className="hover:underline text-gray-400">
+            <Link
+              to="/"
+              className="hover:underline text-xs lg:text-base text-gray-400"
+            >
               Home
             </Link>
-            <Link to="/addProduct" className="hover:underline text-gray-400">
+            <Link
+              to="/addProduct"
+              className="hover:underline text-xs lg:text-base text-gray-400"
+            >
               Add Product
             </Link>
-            <Link to="/myCart" className="hover:underline text-gray-400">
+            <Link
+              to="/myCart"
+              className="hover:underline text-xs lg:text-base text-gray-400"
+            >
               My Cart
             </Link>
           </nav>
@@ -81,7 +90,7 @@ const Footer = () => {
           </nav>
         </div>
       </footer>
-      <div className="footer footer-center pb-5 -mt-2 lg:-mt-5 bg-gray-900 text-xs lg:text-base text-gray-400">
+      <div className="footer footer-center pb-5 bg-gray-900 text-xs lg:text-base text-gray-400">
         <aside>
           <p>
             Copyright © 2023 - All right reserved by{" "}
