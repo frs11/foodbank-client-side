@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-green-100 shadow-lg w-full lg:px-16 mx-auto pb-5">
+    <div className="navbar shadow-lg w-full lg:px-16 mx-auto pb-5">
       <div className="navbar-start">
         <div className="dropdown" onClick={() => setOpen(!open)}>
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -43,7 +43,7 @@ const Navbar = () => {
               open ? "" : "hidden"
             } shadow bg-base-100 rounded-lg w-52`}
           >
-            <span className="block my-1 bg-green-200 w-full px-2 rounded-md py-1">
+            <span className="block my-1 bg-green-100 w-full px-2 rounded-md py-1">
               <NavLink
                 to="/"
                 className={({ isActive, isPending }) =>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 Home
               </NavLink>
             </span>
-            <span className="block my-1 w-full px-2 bg-green-200 rounded-md py-1">
+            <span className="block my-1 w-full px-2 bg-green-100 rounded-md py-1">
               <NavLink
                 to="/addProduct"
                 className={({ isActive, isPending }) =>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 Add Product
               </NavLink>
             </span>
-            <span className="block my-1 w-full px-2 rounded-md bg-green-200 py-1">
+            <span className="block my-1 w-full px-2 rounded-md bg-green-100 py-1">
               <NavLink
                 to="/myCart"
                 className={({ isActive, isPending }) =>
@@ -109,7 +109,7 @@ const Navbar = () => {
               isPending
                 ? "isPending"
                 : isActive
-                ? "text-white px-3 py-1 bg-green-600 rounded-md font-medium"
+                ? "text-white px-3 py-1 bg-green-500 rounded font-medium"
                 : ""
             }
           >
@@ -129,7 +129,7 @@ const Navbar = () => {
               isPending
                 ? "pending"
                 : isActive
-                ? "text-white px-3 py-1 bg-green-600 rounded-md font-medium"
+                ? "text-white px-3 py-1 bg-green-500 rounded font-medium"
                 : ""
             }
           >
@@ -149,7 +149,7 @@ const Navbar = () => {
               isPending
                 ? "pending"
                 : isActive
-                ? "text-white px-3 py-1 bg-green-600 rounded-md font-medium"
+                ? "text-white px-3 py-1 bg-green-500 rounded font-medium"
                 : ""
             }
           >
