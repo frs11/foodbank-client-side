@@ -11,7 +11,7 @@ const Brands = () => {
           Our <span className="text-green-500">Brand</span> Partners
         </h1>
       </div>
-      <div className="w-9/12 lg:max-w-screen-2xl mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="w-10/12 lg:max-w-screen-2xl mt-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {brands.map((brand) => (
           <Brand key={brand.id} brand={brand}></Brand>
         ))}
