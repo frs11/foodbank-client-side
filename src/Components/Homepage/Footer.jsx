@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthProvider";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <div>
       <footer className="bg-gray-900">
@@ -15,18 +19,23 @@ const Footer = () => {
             >
               Home
             </Link>
-            <Link
-              to="/addProduct"
-              className="hover:underline text-xs lg:text-base text-gray-400"
-            >
-              Add Product
-            </Link>
-            <Link
-              to="/myCart"
-              className="hover:underline text-xs lg:text-base text-gray-400"
-            >
-              My Cart
-            </Link>
+            {user && (
+              <div>
+                <Link
+                  to="/addProduct"
+                  className="hover:underline text-xs lg:text-base text-gray-400"
+                >
+                  Add Product
+                </Link>
+                <br />
+                <Link
+                  to="/myCart"
+                  className="hover:underline text-xs lg:text-base text-gray-400"
+                >
+                  My Cart
+                </Link>
+              </div>
+            )}
           </nav>
           <nav>
             <header className="footer-title text-base lg:text-xl">
