@@ -15,6 +15,7 @@ const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [brands, setBrands] = useState([]);
+  const [products, setProducts] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +23,11 @@ const AuthProvider = ({ children }) => {
     fetch("/brands.json")
       .then((res) => res.json())
       .then((data) => setBrands(data));
+  }, []);
+  useEffect(() => {
+    fetch("http://localhost:5000/brands/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
   }, []);
 
   useEffect(() => {
@@ -56,6 +62,7 @@ const AuthProvider = ({ children }) => {
 
   const contextData = {
     brands,
+    products,
     user,
     loading,
     createNewUser,

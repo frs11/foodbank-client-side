@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,8 +8,7 @@ import Product from "../Components/Brand Products/Product";
 const BrandProducts = () => {
   const [brandedProducts, setBrandedProducts] = useState([]);
   const { brandCode } = useParams();
-  const { brands } = useContext(AuthContext);
-  const products = useLoaderData();
+  const { brands, products } = useContext(AuthContext);
   const selectedBrand = brands.find((brand) => brand.brand_code === brandCode);
 
   useEffect(() => {

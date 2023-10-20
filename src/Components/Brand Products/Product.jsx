@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Product = ({ brandedProduct }) => {
-  const { name, brand, image, type, price, ratting } = brandedProduct || {};
+  const { _id, name, brand, image, type, price, ratting } =
+    brandedProduct || {};
 
   return (
     <div className="">
@@ -11,13 +13,7 @@ const Product = ({ brandedProduct }) => {
 
       <div className="overflow-x-auto my-4">
         <table className="table table-zebra">
-          <thead>
-            <tr>
-              <tr></tr>
-              <tr></tr>
-              <tr></tr>
-            </tr>
-          </thead>
+          <thead></thead>
           <tbody>
             {/* row 1 */}
             <tr>
@@ -54,8 +50,16 @@ const Product = ({ brandedProduct }) => {
       </div>
 
       <div className="grid grid-cols-2 gap-2">
-        <button className="w-full btn btn-success">Details</button>
-        <button className="w-full btn btn-outline">Upgrade</button>
+        <Link to={`/products/${_id}`}>
+          <button className="w-full btn bg-green-400 hover:btn-outline">
+            Details
+          </button>
+        </Link>
+        <Link to={`/products/update/${_id}`}>
+          <button className="w-full btn btn-outline border border-green-600">
+            Update
+          </button>
+        </Link>
       </div>
     </div>
   );
