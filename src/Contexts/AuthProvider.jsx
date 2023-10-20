@@ -16,6 +16,7 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [brands, setBrands] = useState([]);
   const [products, setProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +29,13 @@ const AuthProvider = ({ children }) => {
     fetch("http://localhost:5000/brands/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/cart/products")
+      .then((res) => res.json())
+      .then((data) => setCartProducts(data));
+  }, [cartProducts]);
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -63,6 +70,7 @@ const AuthProvider = ({ children }) => {
   const contextData = {
     brands,
     products,
+    cartProducts,
     user,
     loading,
     createNewUser,

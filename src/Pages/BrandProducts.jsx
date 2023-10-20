@@ -9,6 +9,7 @@ const BrandProducts = () => {
   const [brandedProducts, setBrandedProducts] = useState([]);
   const { brandCode } = useParams();
   const { brands, products } = useContext(AuthContext);
+  // console.log(products);
   const selectedBrand = brands.find((brand) => brand.brand_code === brandCode);
 
   useEffect(() => {

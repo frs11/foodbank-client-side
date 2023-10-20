@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
   const { productId } = useParams();
   const { products, brands } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const selectedProduct = products.find((product) => product._id == productId);
   const [selectedBrand, setSelectedBrand] = useState(selectedProduct.brand);
@@ -37,12 +38,13 @@ const UpdateProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data?.insertedId) {
+        if (data?.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Product Updated Successfully",
             icon: "success",
           });
+          navigate(-1);
         }
       });
 

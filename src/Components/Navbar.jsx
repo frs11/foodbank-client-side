@@ -176,11 +176,11 @@ const Navbar = () => {
             <div className="">
               <img
                 className="w-7 lg:w-10 h-7 lg:h-10 rounded-full ml-4 lg:ml-2"
-                src={user.photoURL}
+                src={user?.photoURL}
                 alt=""
               />
               <p className="text-xs font-logoFont text-center">
-                {user.displayName}
+                {user?.displayName}
               </p>
             </div>
             <button

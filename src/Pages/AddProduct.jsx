@@ -29,7 +29,6 @@ const AddProduct = () => {
       ratting,
       description,
     };
-    console.log(newProduct);
 
     fetch("http://localhost:5000/brands/products", {
       method: "POST",
