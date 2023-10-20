@@ -8,6 +8,7 @@ import MyCart from "../Pages/MyCart";
 import AddProduct from "../Pages/AddProduct";
 import PrivateRoutes from "./PrivateRoutes";
 import PreventionRoute from "./PreventionRoute";
+import BrandProducts from "../Pages/BrandProducts";
 
 const customRoutes = createBrowserRouter([
   {
@@ -43,6 +44,15 @@ const customRoutes = createBrowserRouter([
             <AddProduct></AddProduct>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: `/brands/:brandCode`,
+        element: (
+          <PrivateRoutes>
+            <BrandProducts></BrandProducts>
+          </PrivateRoutes>
+        ),
+        loader: () => fetch("http://localhost:5000/brands/products"),
       },
       {
         path: "/myCart",
