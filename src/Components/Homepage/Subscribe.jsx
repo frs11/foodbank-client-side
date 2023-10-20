@@ -2,14 +2,16 @@ const Subscribe = () => {
   return (
     <div className="subscribeBg flex flex-col lg:flex-row justify-center space-y-4 md:justify-evenly items-center w-10/12 mx-auto my-14 text-white h-[300px]">
       <div className="ml-5 text-center">
-        <h1 className="text-3xl font-sans font-thin">Stay Connected</h1>
-        <h1 className="text-4xl font-medium">
+        <h1 className="text-3xl font-sans font-thin dark:text-slate-200">
+          Stay Connected
+        </h1>
+        <h1 className="text-4xl font-medium dark:text-slate-200">
           Subscribe <span className="font-thin text-green-400">Newsletter</span>
         </h1>
       </div>
       <div className="lg:mr-8">
         <input
-          className="w-full lg:w-[300px] py-2 px-5 rounded-full"
+          className="w-full lg:w-[300px] py-2 dark:bg-slate-800 dark:text-slate-100 px-5 rounded-full"
           placeholder="Enter Your Email"
           type="email"
           name=""

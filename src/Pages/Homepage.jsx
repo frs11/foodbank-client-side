@@ -6,7 +6,7 @@ import Subscribe from "../Components/Homepage/Subscribe";
 
 const Homepage = () => {
   return (
-    <div className="">
+    <div className="dark:bg-slate-700">
       <Banner></Banner>
       <Brands></Brands>
       <Service></Service>

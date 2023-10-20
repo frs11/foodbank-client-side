@@ -5,17 +5,22 @@ import Swal from "sweetalert2";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const { products, cartProducts } = useContext(AuthContext);
+  const { user, products, cartProducts } = useContext(AuthContext);
   const selectedProduct = products.find((product) => product._id == productId);
 
   const { name, brand, image, type, price, ratting, description } =
     selectedProduct;
 
-  const isExist = cartProducts?.find(
-    (product) => product._id === selectedProduct._id
-  );
-
   const handleAddToCart = () => {
+    const newSelectedProduct = { ...selectedProduct };
+    newSelectedProduct.user = user.email;
+
+    const filteredProduct = cartProducts?.filter(
+      (cartProduct) => cartProduct.user == user.email
+    );
+    const isExist = filteredProduct?.find(
+      (product) => product._id === newSelectedProduct._id
+    );
     if (isExist) {
       return Swal.fire({
         title: "Error!",
@@ -27,7 +32,7 @@ const ProductDetails = () => {
       fetch("http://localhost:5000/cart/products", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(selectedProduct),
+        body: JSON.stringify(newSelectedProduct),
       })
         .then((res) => res.json())
         .then((data) => {

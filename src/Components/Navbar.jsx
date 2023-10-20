@@ -1,10 +1,14 @@
 import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Contexts/AuthProvider";
+import { BsSun, BsMoon } from "react-icons/bs";
+import useTheme from "../Contexts/themeHook";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, userSignOut } = useContext(AuthContext);
+  const { toggleTheme } = useTheme();
+  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -15,9 +19,13 @@ const Navbar = () => {
       .then(navigate("/login"))
       .catch((err) => console.log(err.message));
   };
+  const handleTheme = () => {
+    toggleTheme();
+    setDarkMode(!darkMode);
+  };
 
   return (
-    <div className="navbar shadow-lg w-full lg:px-16 mx-auto pb-5">
+    <div className="navbar shadow-lg w-full dark:bg-slate-600 dark:text-white lg:px-16 mx-auto pb-5">
       <div className="navbar-start">
         <div className="dropdown" onClick={() => setOpen(!open)}>
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -102,10 +110,11 @@ const Navbar = () => {
           <span className="flex items-center">
             <img
               src="https://i.ibb.co/c6F76Hm/logo.png"
-              className="w-12 mr-1"
+              className="w-10 md:w-12 mr-1"
             />
-            <span className="font-medium font-logoFont">
-              Food<span className="text-green-600">Bank</span>
+            <span className="font-medium font-logoFont dark:text-white text-sm md:text-xl">
+              Food
+              <span className="text-green-600 dark:text-green-300">Bank</span>
             </span>
           </span>
         </Link>
@@ -171,6 +180,13 @@ const Navbar = () => {
 
       {/* Navbar End */}
       <div className="navbar-end">
+        <div onClick={handleTheme} className="mr-2">
+          {darkMode ? (
+            <BsMoon className="text-xl"></BsMoon>
+          ) : (
+            <BsSun className="text-xl"></BsSun>
+          )}
+        </div>
         {user ? (
           <div className="flex items-center space-x-3">
             <div className="">
