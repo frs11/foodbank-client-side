@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductDetails = () => {
@@ -8,18 +8,20 @@ const ProductDetails = () => {
   const { user, products, cartProducts } = useContext(AuthContext);
   const selectedProduct = products.find((product) => product._id == productId);
 
-  const { name, brand, image, type, price, ratting, description } =
+  const { _id, name, brand, image, type, price, ratting, description } =
     selectedProduct;
 
   const handleAddToCart = () => {
     const newSelectedProduct = { ...selectedProduct };
     newSelectedProduct.user = user.email;
+    newSelectedProduct.id = selectedProduct._id;
+    delete newSelectedProduct._id;
 
     const filteredProduct = cartProducts?.filter(
       (cartProduct) => cartProduct.user == user.email
     );
     const isExist = filteredProduct?.find(
-      (product) => product._id === newSelectedProduct._id
+      (product) => product.id === newSelectedProduct.id
     );
     if (isExist) {
       return Swal.fire({
@@ -29,11 +31,14 @@ const ProductDetails = () => {
         confirmButtonText: "Ok",
       });
     } else {
-      fetch("http://localhost:5000/cart/products", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(newSelectedProduct),
-      })
+      fetch(
+        "https://b8a10-brandshop-server-side-frs11.vercel.app/cart/products",
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(newSelectedProduct),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data?.insertedId) {
@@ -94,13 +99,18 @@ const ProductDetails = () => {
             </tr>
           </tbody>
         </table>
-        <div className="mt-8">
+        <div className="mt-8 grid grid-cols-2 gap-2">
           <button
             onClick={handleAddToCart}
-            className="w-full btn btn-outline border border-green-600"
+            className="w-full btn hover:border-2 hover:bg-green-700 hover:text-white border border-green-600 bg-green-300"
           >
             Add to Cart
           </button>
+          <Link to={`/products/update/${_id}`}>
+            <button className="w-full btn btn-outline border border-green-600">
+              Update
+            </button>
+          </Link>
         </div>
       </div>
     </div>

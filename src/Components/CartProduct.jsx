@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 const CartProduct = ({ cartProduct }) => {
   const { _id, name, brand, image, type, price, ratting } = cartProduct || {};
 
+  // console.log(_id);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -16,9 +17,12 @@ const CartProduct = ({ cartProduct }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cart/products/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b8a10-brandshop-server-side-frs11.vercel.app/cart/products/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

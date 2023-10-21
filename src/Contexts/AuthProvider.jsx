@@ -26,13 +26,15 @@ const AuthProvider = ({ children }) => {
       .then((data) => setBrands(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/brands/products")
+    fetch(
+      "https://b8a10-brandshop-server-side-frs11.vercel.app/brands/products"
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/cart/products")
+    fetch("https://b8a10-brandshop-server-side-frs11.vercel.app/cart/products")
       .then((res) => res.json())
       .then((data) => setCartProducts(data));
   }, [cartProducts]);

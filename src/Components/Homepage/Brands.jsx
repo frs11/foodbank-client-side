@@ -5,7 +5,7 @@ import Brand from "./Brand";
 const Brands = () => {
   const { brands } = useContext(AuthContext);
   return (
-    <div className="py-10 bg-stone-50 dark:bg-slate-700 dark:text-slate-200 border">
+    <div className="py-10 bg-stone-50 dark:bg-slate-700 dark:text-slate-200">
       <div className="">
         <h1 className="text-3xl lg:text-4xl text-center font-medium">
           Our <span className="text-green-500">Brand</span> Partners

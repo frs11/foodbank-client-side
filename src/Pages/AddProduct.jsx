@@ -30,11 +30,14 @@ const AddProduct = () => {
       description,
     };
 
-    fetch("http://localhost:5000/brands/products", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      "https://b8a10-brandshop-server-side-frs11.vercel.app/brands/products",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.insertedId) {
@@ -42,7 +45,7 @@ const AddProduct = () => {
             title: "Success!",
             text: "Product Added Successfully",
             icon: "success",
-            confirmButtonText: "ok",
+            confirmButtonText: "Done",
           });
         }
       });

@@ -31,11 +31,14 @@ const UpdateProduct = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/products/update/${selectedProduct._id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(updatedProduct),
-    })
+    fetch(
+      `https://b8a10-brandshop-server-side-frs11.vercel.app/products/update/${selectedProduct._id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(updatedProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.modifiedCount > 0) {
@@ -43,12 +46,13 @@ const UpdateProduct = () => {
             title: "Success!",
             text: "Product Updated Successfully",
             icon: "success",
+            confirmButtonText: "Done",
           });
           navigate(-1);
         }
       });
 
-    // e.target.reset();
+    e.target.reset();
   };
 
   return (
