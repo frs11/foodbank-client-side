@@ -1,6 +1,6 @@
 # FoodBank
 
-A beautiful website for the event management company.
+A beautiful website for managing several brand product.
 
 ## Website Live Link
 
